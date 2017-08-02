@@ -3,6 +3,7 @@ from django.utils import timezone
 
 
 class Post(models.Model):
+    arka_plan_resmi = models.ImageField(upload_to='resim/', null=True, blank=True)
     yazar = models.ForeignKey('auth.User')
     baslik = models.CharField(max_length=50)
     kisa_baslik = models.CharField(max_length=100,null=True, blank=True)

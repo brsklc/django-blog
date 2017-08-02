@@ -10,3 +10,5 @@ urlpatterns = [
     url(r'^detay/(?P<post_id>[\d]+)/$', views.yazi_detayi, name='yazi_detayi'),
     url(r'hakkinda/$', views.hakkinda, name='hakkinda'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

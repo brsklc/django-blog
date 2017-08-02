@@ -54,12 +54,6 @@
                     <li>
                         <a href="{% url "hakkinda" %}">Hakkında</a>
                     </li>
-                    <li>
-                        <a href="#">Sample Post</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -69,7 +63,12 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/static/img/home-bg.jpg')">
+        {% if post.arka_plan_resmi %}
+            <header class="intro-header" style="background-image: url('{{ request.scheme }}://{{ request.get_host }}{{ post.arka_plan_resmi.url }}')">
+        {% else %}
+                        <header class="intro-header" style="background-image: url('/static/img/home-bg.jpg') ">
+
+        {% endif %}
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -163,7 +162,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/mahmutt28">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -171,7 +170,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/mahmuttasci">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
