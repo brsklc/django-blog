@@ -1,0 +1,50 @@
+<div class="container">
+                                <div class="row">
+                                <div class="col-sm-12">
+                                </div><!-- /col-sm-12 -->
+                                </div><!-- /row -->
+                                <div class="row">
+                                <div class="col-sm-1">
+                                <div class="thumbnail">
+                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                </div><!-- /thumbnail -->
+                                </div><!-- /col-sm-1 -->
+                                <div class="col-sm-5">
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <strong>yorum ekle...</strong>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row-fluid">
+                                        <textarea name="" id="" cols="45" rows="2"></textarea>
+                                    </div>
+                                    <div class="row-fluid" style="margin-top:10px;">
+                                        <BUTTON type="button" class="btn btn-primary">yorum yap</BUTTON>
+                                    </div>
+                                </div><!-- /panel-body -->
+                                </div><!-- /panel panel-default -->
+                                </div><!-- /col-sm-5 -->
+                      </div>
+                          {% for yorum in comments %}
+                                <div class="container">
+                                <div class="row">
+                                <div class="col-sm-12">
+                                </div><!-- /col-sm-12 -->
+                                </div><!-- /row -->
+                                <div class="row">
+                                <div class="col-sm-1">
+                                <div class="thumbnail">
+                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                </div><!-- /thumbnail -->
+                                </div><!-- /col-sm-1 -->
+                                <div class="col-sm-5">
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <strong>{{ yorum.user }}</strong>
+                                </div>
+                                <div class="panel-body">
+                                    {{ yorum.content }}
+                                </div><!-- /panel-body -->
+                                </div><!-- /panel panel-default -->
+                                </div><!-- /col-sm-5 -->
+                          {% endfor %}
