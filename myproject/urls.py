@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^$', views.yazi_listesi, name='yazi_listesi'),
     url(r'^detay/(?P<post_id>[\d]+)/$', views.yazi_detayi, name='yazi_detayi'),
     url(r'hakkinda/$', views.hakkinda, name='hakkinda'),
+    url(r'^yorum/(?P<post_id>[\d]+)/$', views.yorum, name='yorum'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

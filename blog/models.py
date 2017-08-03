@@ -26,4 +26,5 @@ class Hakkinda(models.Model):
 class Comment(models.Model):
     content = models.TextField()
     post = models.ForeignKey(Post)
+    create_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey('auth.User')
