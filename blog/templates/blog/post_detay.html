@@ -89,6 +89,15 @@
                 <h1> {{ post.baslik }}</h1>
                 {{ post.yayinlanma_tarihi|default:'' }} {{ post.yazar }}
                 <hr>
+                {% for tag in post.tags.all %}
+
+                    <a href="#" class="label label-warning" >{{ tag.name }}</a>
+
+                {% endfor %}
+
+
+                </a>
+                <hr>
                 {{ post.yazi|linebreaks }}
                 <hr>
                 <div class="container">
@@ -108,13 +117,12 @@
                                 <strong>yorum ekle...</strong>
                                 </div>
                                 <div class="panel-body">
-                                    <FORM  method="post" action="{% url 'yorum' post_id=post.id %} ">
+                                    <FORM  method="post" action="{% url 'yorum' post_id=post.id %}">
                                         {% csrf_token %}
-                                        <INPUT  type="text" rows="5" size="40" value="" >
-
-                                        </INPUT>
                                         <div class="row-fluid">
-                                            {{ yorum_form }}
+                                            {{ yorum_form.user_name }}
+                                            <hr>
+                                            {{ yorum_form.content }}
                                         </div>
                                         <a href="#" class="top-menu"><span class="#">
                                         <BUTTON type="submit" class="btn btn-primary">yorum yap</BUTTON>
@@ -141,7 +149,7 @@
                                 <div class="col-sm-5">
                                 <div class="panel panel-default">
                                 <div class="panel-heading">
-                                <strong>{{ yorum.user }}</strong>
+                                <strong>{{ yorum.user_name }}</strong>
                                     <div class="pull-right" style="font-size: 15px;" > {{ yorum.create_date }}</div>
                                 </div>
                                     <div class="panel-body">

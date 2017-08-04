@@ -87,6 +87,11 @@
                         <h2 class="post-title">
                             {{ yazi.baslik }}
                         </h2>
+                        <br>
+                        {% for tag in yazi.tags.all %}
+                            <a href="{% url 'tags' tag_id=yazi.id %}" class="label label-warning">{{ tag.name }}</a>
+                        {% endfor %}
+                        <hr>
                         <h3 class="post-subtitle">
                             {{ yazi.kisa_baslik|default:'' }}
                         </h3>

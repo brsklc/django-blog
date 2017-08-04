@@ -29,7 +29,9 @@ def yorum(request,**kwargs):
         post = Post.objects.get(pk=kwargs['post_id'])
         form.instance.post = post
         if form.is_valid():
-            form.instance.yayinlanma_tarihi = timezone.now()
-            form.instance.user = User.objects.first()
             form.save()
     return redirect(reverse('yazi_detayi',kwargs={'post_id':post.id}))
+
+def tag(request, **kwargs):
+    posts = Post.objects.filter(tags__id=kwargs['tag_id'])
+    return render(request, "blog/post_list.html", {'posts':posts})

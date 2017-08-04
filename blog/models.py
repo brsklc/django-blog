@@ -3,6 +3,7 @@ from django.utils import timezone
 
 
 class Post(models.Model):
+    tags = models.ManyToManyField('blog.Tag',related_name='posts')
     arka_plan_resmi = models.ImageField(upload_to='resim/', null=True, blank=True)
     yazar = models.ForeignKey('auth.User')
     baslik = models.CharField(max_length=50)
@@ -20,6 +21,11 @@ class Post(models.Model):
     def __str__(self):
         return self.baslik
 
+class Tag(models.Model):
+    name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
+
 class Hakkinda(models.Model):
     icerik = models.TextField()
 
@@ -27,4 +33,5 @@ class Comment(models.Model):
     content = models.TextField()
     post = models.ForeignKey(Post)
     create_date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey('auth.User')
+    user_name = models.CharField(max_length=50)
+
